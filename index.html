@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekap Data TITIP</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap JS and dependencies (jQuery and Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Rekap Data TITIP</h2>
+
+        <!-- Tabs Navigation -->
+        <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="format1-tab" data-toggle="tab" href="#format1" role="tab" aria-controls="format1" aria-selected="true">TM</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="format2-tab" data-toggle="tab" href="#format2" role="tab" aria-controls="format2" aria-selected="false">TB</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="format3-tab" data-toggle="tab" href="#format3" role="tab" aria-controls="format3" aria-selected="false">TBL</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="format4-tab" data-toggle="tab" href="#format4" role="tab" aria-controls="format4" aria-selected="false">TO</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="manual-tab" data-toggle="tab" href="#manual" role="tab" aria-controls="manual" aria-selected="false">MITRA</a>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="myTabContent">
+            <!-- Format 1 -->
+            <div class="tab-pane fade show active" id="format1" role="tabpanel" aria-labelledby="format1-tab">
+                <h3>Input Rekapan TITIP-MAKANAN</h3>
+                <textarea id="rekapInput1" class="form-control mb-3" rows="5" placeholder="Masukkan rekapan di sini..."></textarea>
+                <button onclick="prosesRekapan(1)" class="btn btn-primary">Proses</button>
+            </div>
+
+            <!-- Format 2 -->
+            <div class="tab-pane fade" id="format2" role="tabpanel" aria-labelledby="format2-tab">
+                <h3>Input Rekapan TITIP-BARANG</h3>
+                <textarea id="rekapInput2" class="form-control mb-3" rows="5" placeholder="Masukkan rekapan di sini..."></textarea>
+                <button onclick="prosesRekapan(2)" class="btn btn-primary">Proses</button>
+            </div>
+
+            <!-- Format 3 -->
+            <div class="tab-pane fade" id="format3" role="tabpanel" aria-labelledby="format3-tab">
+                <h3>Input Rekapan TITIP-BELANJA</h3>
+                <textarea id="rekapInput3" class="form-control mb-3" rows="5" placeholder="Masukkan rekapan di sini..."></textarea>
+                <button onclick="prosesRekapan(3)" class="btn btn-primary">Proses</button>
+            </div>
+
+            <!-- Format 4 -->
+            <div class="tab-pane fade" id="format4" role="tabpanel" aria-labelledby="format4-tab">
+                <h3>Input Rekapan TITIP-OBAT</h3>
+                <textarea id="rekapInput4" class="form-control mb-3" rows="5" placeholder="Masukkan rekapan di sini..."></textarea>
+                <button onclick="prosesRekapan(4)" class="btn btn-primary">Proses</button>
+            </div>
+
+            <!-- Input Manual -->
+            <div class="tab-pane fade" id="manual" role="tabpanel" aria-labelledby="manual-tab">
+                <h3>Input Manual</h3>
+                <form id="manualForm" class="mb-3">
+                    <div class="form-group">
+                        <label for="kodeLayanan">Kode Layanan</label>
+                        <input disabled type="text" class="form-control" id="kodeLayanan" value="TB">
+                    </div>
+                    <div class="form-group">
+                        <label for="pengirim">PENGIRIM</label>
+                        <select class="form-control" id="pengirim">
+                            <option disabled>--PILIH--</option>
+                            <option>MITRA - ANEKA MAINAN</option>
+                            <option>MITRA - BAKU BEKU</option>
+                            <option>MITRA - CEMILAN KOREA 19</option>
+                            <option>MITRA - TENTANG RASA</option>
+                            <option>MITRA - AMFA TOAST</option>
+                            <option>MITRA - AN RUJAK</option>
+                            <option>MITRA - CEMILAN SIKEMBAR</option>
+                            <option>MITRA - JDA SNACK FOOD</option>
+                            <option>MITRA - CCB</option>
+                            <option>MITRA - CEMILANKU.ID</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="namaPemesan">Nama Pemesan</label>
+                        <input type="text" class="form-control" id="namaPemesan">
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp</label>
+                        <input type="text" class="form-control" id="whatsapp">
+                    </div>
+                    <div class="form-group">
+                        <label for="namaDriver">Nama Driver</label>
+                        <select class="form-control" id="namaDriver">
+                            <option>DT001-NURWAHYU</option>
+                            <option>DT003-ANJAS</option>
+                            <option>DT009-DANDI</option>
+                            <option>DT010-IQBAL</option>
+                            <option>DT012-MUSRAN</option>
+                            <option>DT013-MASITA</option>
+                            <option>DT015-HERIL</option>
+                            <option>DT016-FANDI</option>
+                            <option>DT017-ROSMAN</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ongkir">Ongkir</label>
+                        <input type="text" class="form-control" id="ongkir">
+                    </div>
+                    <button type="button" onclick="prosesInputManual()" class="btn btn-primary">Tambah</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Tabel Rekap Data -->
+        <h3 class="mt-5">Tabel Rekap Data</h3>
+        <table class="table mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <!-- <th>Nomor</th> -->
+                    <th>Kode Layanan</th>
+                    <th>Nama Pemesan</th>
+                    <th>WhatsApp</th>
+                    <th>Pengirim</th>
+                    <th>Nama Driver</th>
+                    <th>Transfer</th>
+                    <th>Ongkir</th>
+                    <!-- <th>Aksi</th> -->
+                </tr>
+            </thead>
+            <tbody id="rekapTableBody">
+                <!-- Data akan ditambahkan di sini -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let nomor = 1;
+
+        function prosesRekapan(format) {
+            let rekapInput;
+            if (format === 1) {
+                rekapInput = document.getElementById("rekapInput1").value;
+                ekstrakDanTambahData(rekapInput, format);
+            } else if (format === 2) {
+                rekapInput = document.getElementById("rekapInput2").value;
+                ekstrakDanTambahData(rekapInput, format);
+            } else if (format === 3) {
+                rekapInput = document.getElementById("rekapInput3").value;
+                ekstrakDanTambahData(rekapInput, format);
+            } else if (format === 4) {
+                rekapInput = document.getElementById("rekapInput4").value;
+                ekstrakDanTambahData(rekapInput, format);
+            }
+        }
+
+        function ekstrakDanTambahData(rekapInput, format) {
+            let data = {};
+
+            // Ekstraksi data berdasarkan format
+            if (format === 1) {
+                data = ekstrakDataFormat1(rekapInput);
+            } else if (format === 2) {
+                data = ekstrakDataFormat2(rekapInput);
+            } else if (format === 3) {
+                data = ekstrakDataFormat3(rekapInput);
+            } else if (format === 4) {
+                data = ekstrakDataFormat4(rekapInput);
+            }
+
+            // Tambahkan data ke tabel
+            tambahDataKeTabel(data);
+            nomor++;
+        }
+
+        function ekstrakDataFormat1(rekapan) {
+            const data = {};
+            data.ongkir = rekapan.match(/ONGKIR\s*:\s*(.*)/)[1].trim();
+            data.driver = rekapan.match(/DRIVER\s*:\s*(.*)/)[1].trim();
+            data.namaPenerima = rekapan.match(/NAMA PENERIMA\s*:\s*(.*)/)[1].trim();
+            data.whatsapp = rekapan.match(/WHATSAPP\s*:\s*(.*)/)[1].trim();
+            data.pengirim = rekapan.match(/RESTO\/KEDAI\s*:\s*(.*)/)[1].trim();
+            
+            const titipMatch = rekapan.match(/TITIP-(.*)/);
+            if (titipMatch) {
+                const layanan = titipMatch[1].trim().toUpperCase();
+                if (layanan.includes("MAKANAN")) {
+                    data.kodeLayanan = "TM";
+                } else if (layanan.includes("BARANG")) {
+                    data.kodeLayanan = "TB";
+                } else if (layanan.includes("BELANJA")) {
+                    data.kodeLayanan = "TBL";
+                } else if (layanan.includes("OBAT")) {
+                    data.kodeLayanan = "TO";
+                } else {
+                    data.kodeLayanan = "";
+                }
+            } else {
+                data.kodeLayanan = "";
+            }
+
+            return data;
+        }
+
+        function ekstrakDataFormat2(rekapan) {
+            const data = {};
+            data.ongkir = rekapan.match(/ONGKIR\s*:\s*(.*)/)[1].trim();
+            data.driver = rekapan.match(/DRIVER\s*:\s*(.*)/)[1].trim();
+            data.namaPenerima = rekapan.match(/NAMA PENERIMA\s*:\s*(.*)/)[1].trim();
+            data.whatsapp = rekapan.match(/WHATSAPP\s*:\s*([^\n\r]*)/m)[1].trim();
+            data.pengirim = rekapan.match(/NAMA PENGIRIM\s*:\s*(.*)/)[1].trim();
+            
+            const titipMatch = rekapan.match(/TITIP-(.*)/);
+            if (titipMatch) {
+                const layanan = titipMatch[1].trim().toUpperCase();
+                if (layanan.includes("MAKANAN")) {
+                    data.kodeLayanan = "TM";
+                } else if (layanan.includes("BARANG")) {
+                    data.kodeLayanan = "TB";
+                } else if (layanan.includes("BELANJA")) {
+                    data.kodeLayanan = "TBL";
+                } else if (layanan.includes("OBAT")) {
+                    data.kodeLayanan = "TO";
+                } else {
+                    data.kodeLayanan = "";
+                }
+            } else {
+                data.kodeLayanan = "";
+            }
+
+            return data;
+        }
+
+        function ekstrakDataFormat3(rekapan) {
+            const data = {};
+            data.ongkir = rekapan.match(/ONGKIR\s*:\s*(.*)/)[1].trim();
+            data.driver = rekapan.match(/DRIVER\s*:\s*(.*)/)[1].trim();
+            data.namaPenerima = rekapan.match(/NAMA PENERIMA\s*:\s*(.*)/)[1].trim();
+            data.whatsapp = rekapan.match(/WHATSAPP\s*:\s*(.*)/)[1].trim();
+            data.pengirim = rekapan.match(/TEMPAT BELANJA\s*:\s*(.*)/)[1].trim();
+            
+            const titipMatch = rekapan.match(/TITIP-(.*)/);
+            if (titipMatch) {
+                const layanan = titipMatch[1].trim().toUpperCase();
+                if (layanan.includes("MAKANAN")) {
+                    data.kodeLayanan = "TM";
+                } else if (layanan.includes("BARANG")) {
+                    data.kodeLayanan = "TB";
+                } else if (layanan.includes("BELANJA")) {
+                    data.kodeLayanan = "TBL";
+                } else if (layanan.includes("OBAT")) {
+                    data.kodeLayanan = "TO";
+                } else {
+                    data.kodeLayanan = "";
+                }
+            } else {
+                data.kodeLayanan = "";
+            }
+
+            return data;
+        }
+
+        function ekstrakDataFormat4(rekapan) {
+            const data = {};
+            data.ongkir = rekapan.match(/ONGKIR\s*:\s*(.*)/)[1].trim();
+            data.driver = rekapan.match(/DRIVER\s*:\s*(.*)/)[1].trim();
+            data.namaPenerima = rekapan.match(/NAMA PENERIMA\s*:\s*(.*)/)[1].trim();
+            data.whatsapp = rekapan.match(/WHATSAPP\s*:\s*(.*)/)[1].trim();
+            data.pengirim = rekapan.match(/APOTEK\s*:\s*(.*)/)[1].trim();
+            
+            const titipMatch = rekapan.match(/TITIP-(.*)/);
+            if (titipMatch) {
+                const layanan = titipMatch[1].trim().toUpperCase();
+                if (layanan.includes("MAKANAN")) {
+                    data.kodeLayanan = "TM";
+                } else if (layanan.includes("BARANG")) {
+                    data.kodeLayanan = "TB";
+                } else if (layanan.includes("BELANJA")) {
+                    data.kodeLayanan = "TBL";
+                } else if (layanan.includes("OBAT")) {
+                    data.kodeLayanan = "TO";
+                } else {
+                    data.kodeLayanan = "";
+                }
+            } else {
+                data.kodeLayanan = "";
+            }
+
+            return data;
+        }
+
+        function prosesInputManual() {
+            const kodeLayanan = document.getElementById("kodeLayanan").value;
+            const namaPemesan = document.getElementById("namaPemesan").value;
+            const whatsapp = document.getElementById("whatsapp").value;
+            const pengirim = document.getElementById("pengirim").value;
+            const namaDriver = document.getElementById("namaDriver").value;
+            const ongkir = document.getElementById("ongkir").value;
+
+            const data = {
+                kodeLayanan,
+                namaPenerima: namaPemesan,
+                whatsapp,
+                pengirim,
+                driver: namaDriver,
+                ongkir
+            };
+
+            tambahDataKeTabel(data);
+            nomor++;
+        }
+
+        function tambahDataKeTabel(data) {
+            const tableBody = document.getElementById("rekapTableBody");
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                
+                <td>${data.kodeLayanan}</td>
+                <td>${data.namaPenerima}</td>
+                <td>${data.whatsapp}</td>
+                <td>${data.pengirim}</td>
+                <td>${data.driver}</td>
+                <td></td>
+                <td>${data.ongkir}</td>
+                
+            `;
+            tableBody.appendChild(row);
+        }
+
+        function hapusData(button) {
+            const row = button.parentElement.parentElement;
+            row.remove();
+        }
+    </script>
+</body>
+</html>
